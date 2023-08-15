@@ -1,0 +1,19 @@
+{
+  "name": "mukund_finalexam",
+  "version": "1.0.0",
+  "description": "Programming Dynamic Websites Final Exam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CpJack05/Mukund_FinalExam.git"
+  },
+  "author": "Mukund Jogani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CpJack05/Mukund_FinalExam/issues"
+  },
+  "homepage": "https://github.com/CpJack05/Mukund_FinalExam#readme"
+}

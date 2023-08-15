@@ -21,16 +21,16 @@
       <input id="name" type="text" name="name"><br />
 
       <label>PHONE NO.* :</label>
-      <input id="phone" placeholder="xxxxxxxxxx" type="text" name="phone"><br />
+      <input id="phone" placeholder="1231231234" type="text" name="phone"><br />
 
-      <label>Mango Juices :</label>
-      <input id="mango" placeholder="Please enter Number Only" type="text" name="mango"><br />
+      <label>LICHI JUICES :</label>
+      <input id="lichi" placeholder="Please enter Number Only" type="text" name="lichi"><br />
 
-      <label>Berry Juices :</label>
-      <input id="berry" placeholder="Please enter Number Only" type="text" name="berry"><br />
+      <label>BEET JUICES :</label>
+      <input id="beet" placeholder="Please enter Number Only" type="text" name="beet"><br />
 
-      <label>Apple Juices :</label>
-      <input id="apple" placeholder="Please enter Number Only" type="text" name="apple"><br />
+      <label>PEACH JUICES :</label>
+      <input id="peach" placeholder="Please enter Number Only" type="text" name="peach"><br />
 
       <br /><br />
 
@@ -38,6 +38,69 @@
       <input type="submit" value="PLACE ORDER">
       <p id="errors"></p>
     </div>
+
   </form>
+  <h2 id="title">RECEIPT</h2>
+  <div class="formData">
+    <% if(typeof(errors) !='undefined' ) { for(var error of errors) { %>
+      <p class="error">
+        <%=error.msg %>
+      </p>
+      <% } } %>
+
+        <% if(typeof(totalAmount) !='undefined' ){ %>
+          <p id="formResult"><u><b>YOUR RECEIPT:</b></u></p>
+          <table>
+            <tr>
+              <th>NAME : <br><br></th>
+              <td>
+                <%= name %> <br><br>
+              </td>
+            </tr>
+            <tr>
+              <th>PHONE : <br><br></th>
+              <td>
+                <%= phone %> <br><br>
+              </td>
+            </tr>
+            <tr>
+              <th>Total number of Lichi Juices @ 3.99 :<br><br> </th>
+              <td>
+                <%= lichi %><br><br>
+              </td>
+            </tr>
+            <tr>
+              <th>Total number of Beet Juices @ 2.99 :<br><br> </th>
+              <td>
+                <%= beet %><br><br>
+              </td>
+            </tr>
+            <tr>
+              <th>Total number of Lichi Juices @ 3.49 :<br><br> </th>
+              <td>
+                <%= peach %><br><br>
+              </td>
+            </tr>
+            <tr>
+              <th>SUB TOTAL :<br><br></th>
+              <td>$<%= subTotal.toFixed(2) %><br><br>
+              </td>
+            </tr>
+            <tr>
+              <th>Tax :<br><br> </th>
+              <td>$<%= taxAmount.toFixed(2) %><br><br>
+              </td>
+            </tr>
+            <tr>
+              <th>Total : </th>
+              <td>$<%= totalAmount.toFixed(2) %>
+              </td>
+            </tr>
+          </table>
+          <% } %>
+  </div>
 </body>
+<footer>
+  <h2>@COPYRIGHT - MUKUND JOGANI</h2>
+</footer>
 </html>

@@ -6,6 +6,25 @@ const bodyParser = require('body-parser');
 //setting up Express Validator
 const { check, validationResult } = require('express-validator');
 
+// setting up Mongo DB
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017/JuiceStore', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+
+const Order = mongoose.model('Order', {
+    name: String,
+    phone: String,
+    lichi: Number,
+    beet: Number,
+    peach: Number,
+    subTotal: Number,
+    taxAmount: Number,
+    totalAmount: Number
+});
+
 // set up variables to use packages
 var myApp = express();
 myApp.use(bodyParser.urlencoded({ extended: false }));
@@ -22,7 +41,7 @@ myApp.get('/', function (req, res) {
 });
 
 var phoneNumberRegex = /^[0-9]{10}$/;
-var positiveNumber = /^[1-9][0-9]*$/;
+var positiveNumber = /^[0-9][0-9]*$/;
 
 //function to check that value is valid or not using regular expression
 function checkRegex(userInput, regex) {
@@ -128,9 +147,22 @@ myApp.post('/', [
             totalAmount: totalAmount
         }
         
+        var myOrder = new Order(pageData);
+        myOrder.save().then( function(){
+            console.log('New order created');
+        });
+
         res.render('JuiceStore', pageData);
     }
 });
+
+// All orders page
+myApp.get('/AllOrders', function(req, res){
+    Order.find({}).exec(function(err, orders){
+        res.render('AllOrders', {orders:orders});
+    });
+});
+
 
 // start the server and listen at a port
 myApp.listen(8080);

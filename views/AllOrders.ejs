@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Juice Store</title>
+</head>
+<body>
+    <h1>MUKUND JOGANI - 8828329</h1>
+  <nav class="navbar"> 
+    <ul>
+      <li><a href="/">ORDER JUICES</a></li>
+      <li><a href="/AllOrders">VIEW ORDERS</a></li>
+    </ul>
+  </nav>
+  <section>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone No.</th>
+                <th>Lichi Juices</th>
+                <th>Beet Juices</th>
+                <th>Peach Juices</th>
+                <th>Subtotal</th>
+                <th>Tax</th>
+                <th>Total Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var order of orders){ %>
+                <tr>
+                    <td><%= order.name %></td>
+                    <td><%= order.phone %></td>
+                    <td><%= order.lichi %></td>
+                    <td><%= order.beet %></td>
+                    <td><%= order.peach  %></td>
+                    <td>$ <%= order.subTotal.toFixed(2) %></td>
+                    <td>$ <%= order.taxAmount.toFixed(2) %></td>
+                    <td>$ <%= order.totalAmount.toFixed(2) %></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</section>
+</body>
+<footer>
+<h2>@COPYRIGHT - MUKUND JOGANI</h2>
+</footer>
+</html>
